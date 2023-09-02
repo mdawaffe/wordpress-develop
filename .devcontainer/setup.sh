@@ -9,10 +9,13 @@ else
 fi
 
 # Install dependencies
-#cd /workspaces/wordpress-develop
-#npm install && npm run build:dev
+npm install
 
-# Install WordPress and activate the plugin/theme.
-#cd /var/www/html
-#echo "Setting up WordPress at $LOCAL_URL"
-#wp core install --url="$LOCAL_URL" --title="WordPress Trunk" --admin_user="admin" --admin_email="admin@example.com" --admin_password="password" --skip-email
+# Build
+npm run build:dev
+
+# Start Docker-in-Docker
+npm run env:start
+
+echo "Setting up WordPress at $LOCAL_URL"
+npm run env:install
